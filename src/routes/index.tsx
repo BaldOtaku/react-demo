@@ -1,10 +1,10 @@
-import BasicLayout from '../layout/BasicLayout'
-import Home from '../pages/Home'
-import Login from '../pages/Login'
+import Layout from '../components/Layout'
+import Home from '../pages/home'
+import Login from '../pages/login'
 
 const routes = [
   {
-    component: BasicLayout,
+    component: Layout,
     routes: [
       {
         path: '/',
