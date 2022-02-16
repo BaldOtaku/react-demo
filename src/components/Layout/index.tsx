@@ -24,7 +24,7 @@ const footerStyles: CSS.Properties = {
 }
 
 interface IProps {
-  route: any
+  route?: any
 }
 
 const BasicLayout: React.FC<IProps> = (props) => {
