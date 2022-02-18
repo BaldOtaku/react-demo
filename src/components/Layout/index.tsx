@@ -1,43 +1,42 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
-import { Layout, Menu } from 'antd'
-import CSS from 'csstype'
+import { Layout } from 'antd'
+import TopNav from '../TopNav'
+import { navTree } from '../../routes'
 import './index.less'
 
-const { Header, Footer, Content } = Layout;
+const { Header, Footer, Content } = Layout
 
-const headerStyles: CSS.Properties = {
+const headerStyles: React.CSSProperties = {
   display: 'flex',
   height: '50px',
   lineHeight: '50px',
   backgroundColor: '#fff'
 }
 
-const contentStyles: CSS.Properties = {
-  minHeight: 'calc(100vh - 50px - 70px)'
+const contentStyles: React.CSSProperties = {
+  minHeight: 'calc(100vh - 50px - 70px)',
+  padding: '20px 50px'
 }
 
-const footerStyles: CSS.Properties = {
+const footerStyles: React.CSSProperties = {
   textAlign: 'center',
-  color: '#00000073',
+  color: '#999',
   fontSize: '12px'
 }
 
-interface IProps {
+interface Props {
   route?: any
 }
 
-const BasicLayout: React.FC<IProps> = (props) => {
+const BasicLayout: React.FC<Props> = (props) => {
   return (
     <>
       <Layout>
         <Header style={headerStyles}>
-          <div className="logo">Hello React</div>
-          <Menu mode="horizontal">
-            <Menu.Item key="1">Navigation One</Menu.Item>
-            <Menu.Item key="2">Navigation Two</Menu.Item>
-            <Menu.Item key="3">Navigation Three</Menu.Item>
-          </Menu>
+          <Link to="/" className="logo">Hello React</Link>
+          <TopNav data={navTree} />
         </Header>
         <Content style={contentStyles}>
           {renderRoutes(props.route.routes)}
