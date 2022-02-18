@@ -1,4 +1,4 @@
-function Mobx () {
+const Mobx = () => {
   return (
     <div>Mobx</div>
   )

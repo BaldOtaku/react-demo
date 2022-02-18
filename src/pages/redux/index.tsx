@@ -1,4 +1,4 @@
-function Redux () {
+const Redux = () => {
   return (
     <div>Redux</div>
   )

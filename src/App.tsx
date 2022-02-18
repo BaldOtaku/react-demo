@@ -1,16 +1,12 @@
-import {
-  HashRouter as Router,
-} from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { routes } from './routes'
 
-function App (props: any) {
+const App = () => {
   return (
-    <Router>
-      {
-        renderRoutes(routes)
-      }
-    </Router>
+    <HashRouter>
+      {renderRoutes(routes)}
+    </HashRouter>
   )
 }
 

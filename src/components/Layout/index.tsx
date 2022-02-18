@@ -3,27 +3,26 @@ import { Link } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { Layout } from 'antd'
 import TopNav from '../TopNav'
-import { navTree } from '../../routes'
+import { navTree } from '@/routes'
 import './index.less'
 
 const { Header, Footer, Content } = Layout
 
 const headerStyles: React.CSSProperties = {
   display: 'flex',
-  height: '50px',
-  lineHeight: '50px',
   backgroundColor: '#fff'
 }
 
 const contentStyles: React.CSSProperties = {
-  minHeight: 'calc(100vh - 50px - 70px)',
-  padding: '20px 50px'
+  minHeight: 'calc(100vh - 64px - 70px)',
+  padding: '30px 50px'
 }
 
 const footerStyles: React.CSSProperties = {
   textAlign: 'center',
   color: '#999',
-  fontSize: '12px'
+  fontSize: '12px',
+  height: '70px'
 }
 
 interface Props {
@@ -35,7 +34,7 @@ const BasicLayout: React.FC<Props> = (props) => {
     <>
       <Layout>
         <Header style={headerStyles}>
-          <Link to="/" className="logo">Hello React</Link>
+          <Link to="/" className="logo">摸鱼</Link>
           <TopNav data={navTree} />
         </Header>
         <Content style={contentStyles}>

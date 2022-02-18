@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Menu } from 'antd'
-import { NavItem } from '../../routes'
+import { NavItem } from '@/routes'
 
 const { SubMenu } = Menu
 

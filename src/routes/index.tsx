@@ -1,7 +1,6 @@
-import Layout from '../components/Layout'
-import Home from '../pages/home'
-import Redux from '../pages/redux'
-import Mobx from '../pages/mobx'
+import Layout from '@/components/Layout'
+import Home from '@/pages/home'
+import state from './modules/state'
 
 export interface NavItem {
   title?: string
@@ -10,22 +9,7 @@ export interface NavItem {
 }
 
 export const navTree = [
-  {
-    title: '状态管理',
-    path: '/state',
-    children: [
-      {
-        title: 'Redux',
-        path: '/redux',
-        component: Redux
-      },
-      {
-        title: 'Mobx',
-        path: '/mobx',
-        component: Mobx
-      }
-    ]
-  }
+  state
 ]
 
 function treeToArray (tree: NavItem[]) {

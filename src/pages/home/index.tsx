@@ -1,10 +1,6 @@
-import { Button } from 'antd'
-
-function Home () {
+const Home = () => {
   return (
-    <div>
-      <Button>Button</Button>
-    </div>
+    <div>热情会逐渐被时间消退，很多事情现在不做以后就不会再做了..</div>
   )
 }
 
