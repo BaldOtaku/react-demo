@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { renderRoutes } from 'react-router-config'
+import { renderRoutes, RouteConfigComponentProps } from 'react-router-config'
 import { Layout } from 'antd'
 import TopNav from '../TopNav'
 import { navTree } from '@/routes'
@@ -25,11 +25,7 @@ const footerStyles: React.CSSProperties = {
   height: '70px'
 }
 
-interface Props {
-  route?: any
-}
-
-const BasicLayout: React.FC<Props> = (props) => {
+const BasicLayout: React.FC<RouteConfigComponentProps> = (props) => {
   return (
     <>
       <Layout>
@@ -38,7 +34,7 @@ const BasicLayout: React.FC<Props> = (props) => {
           <TopNav data={navTree} />
         </Header>
         <Content style={contentStyles}>
-          {renderRoutes(props.route.routes)}
+          {renderRoutes(props.route?.routes)}
         </Content>
         <Footer style={footerStyles}>&copy; 今天的风儿甚是喧</Footer>
       </Layout>
