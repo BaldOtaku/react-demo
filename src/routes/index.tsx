@@ -1,5 +1,6 @@
 import Layout from '@/components/Layout'
 import Home from '@/pages/home'
+import NotFoundPage from '@/pages/404'
 import state from './modules/state'
 
 export interface NavItem {
@@ -33,7 +34,10 @@ export const routes = [
         exact: true,
         component: Home
       },
-      ...treeToArray(navTree)
+      ...treeToArray(navTree),
+      {
+        component: NotFoundPage
+      }
     ]
   }
 ]
