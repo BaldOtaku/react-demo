@@ -15,10 +15,25 @@ interface ITask {
   title: string
 }
 
+function useTaskList<T> (): [T, (data: T) => void] {
+  const localTaskList = JSON.parse(localStorage.getItem('task_list')!) || []
+  const [list, setList] = useState<T>(localTaskList)
+
+  const setTaskList = (data: T) => {
+    localStorage.setItem('task_list', JSON.stringify(data))
+    setList(data)
+  }
+
+  return [
+    list,
+    setTaskList
+  ]
+}
+
 const TodoList = () => {
   const [inputValue, setInputValue] = useState('')
   const [state, setState] = useState(0)
-  const [taskList, setTaskList] = useState<ITask[]>([])
+  const [taskList, setTaskList] = useTaskList<ITask[]>()
 
   const onInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputValue(e.target.value)
@@ -26,16 +41,15 @@ const TodoList = () => {
 
   const handleAdd = () => {
     if (inputValue) {
-      setTaskList((list) => {
-        return [
-          ...list,
-          {
-            id: Date.now(),
-            state: 0,
-            title: inputValue
-          }
-        ]
-      })
+      setTaskList([
+        ...taskList,
+        {
+          id: Date.now(),
+          state: 0,
+          title: inputValue
+        }
+      ])
+
       setInputValue('')
     }
   }
@@ -45,24 +59,20 @@ const TodoList = () => {
   }
 
   const onComplete = (task: ITask) => {
-    setTaskList((list: ITask[]) => {
-      const newList = [...list]
-      const index = newList.findIndex(v => v.id === task.id)
-      newList[index] = {
-        ...task,
-        state: 1
-      }
-      return newList
-    })
+    const newList = [...taskList]
+    const index = newList.findIndex(v => v.id === task.id)
+    newList[index] = {
+      ...task,
+      state: 1
+    }
+    setTaskList(newList)
   }
 
   const onDelete = (id: number) => {
-    setTaskList((list: ITask[]) => {
-      const newList = [...list]
-      const index = newList.findIndex(v => v.id === id)
-      newList.splice(index, 1)
-      return newList
-    })
+    const newList = [...taskList]
+    const index = newList.findIndex(v => v.id === id)
+    newList.splice(index, 1)
+    setTaskList(newList)
   }
 
   const renderList = () => {
