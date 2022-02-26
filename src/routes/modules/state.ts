@@ -1,6 +1,6 @@
-import Redux from '@/pages/redux'
-import Mobx from '@/pages/mobx'
-import Context from '@/pages/context'
+import Redux from '@/pages/state/redux'
+import Mobx from '@/pages/state/mobx'
+import Context from '@/pages/state/context'
 
 export default {
   title: '状态管理',
