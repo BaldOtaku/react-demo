@@ -1,13 +1,19 @@
 import useMount from '@/pages/hooks/useMount'
+import useUnmount from '@/pages/hooks/useUnmount'
 
 export default {
-  title: '状态管理',
+  title: 'hooks',
   path: '/hooks',
   children: [
     {
       title: 'useMount',
       path: '/useMount',
       component: useMount
+    },
+    {
+      title: 'useUnmount',
+      path: '/useUnmount',
+      component: useUnmount
     }
   ]
 }
