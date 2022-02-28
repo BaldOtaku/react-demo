@@ -2,6 +2,7 @@ import Layout from '@/components/Layout'
 import Home from '@/pages/home'
 import NotFoundPage from '@/pages/404'
 import state from './modules/state'
+import hooks from './modules/hooks'
 
 export interface NavItem {
   title?: string
@@ -10,7 +11,8 @@ export interface NavItem {
 }
 
 export const navTree = [
-  state
+  state,
+  hooks
 ]
 
 function treeToArray (tree: NavItem[]) {
